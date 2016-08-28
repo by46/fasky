@@ -3,17 +3,18 @@ import json
 
 from flask import abort
 from flask import make_response
-from  flask import redirect
+from flask import redirect
 from flask import render_template
 from flask import session
 from flask import url_for
+from flask_login import login_required
 from flask_wtf import Form
 from wtforms import StringField
 from wtforms import SubmitField
 from wtforms.validators import Required
 
-from flasky import app
 from flasky import db
+from flasky.main import main
 from flasky.models import User
 
 
@@ -22,7 +23,8 @@ class NameForm(Form):
     submit = SubmitField("Submit")
 
 
-@app.route("/", methods=['GET', 'POST'])
+@main.route("/", methods=['GET', 'POST'])
+@login_required
 def index():
     form = NameForm()
     if form.validate_on_submit():
@@ -35,13 +37,13 @@ def index():
             session['known'] = True
         session['name'] = form.name.data
         form.name.data = ''
-        return redirect(url_for('index'))
+        return redirect(url_for('.index'))
     return render_template('index.html', form=form,
                            name=session.get('name'),
                            known=session.get('known'))
 
 
-@app.route('/exception/', methods=['GET'])
+@main.route('/exception/', methods=['GET'])
 def exception_with_json():
     message = dict(message='Unkown error')
     response = make_response(json.dumps(message))
@@ -51,7 +53,7 @@ def exception_with_json():
     abort(response)
 
 
-@app.route('/exception2/', methods=['GET'])
+@main.route('/exception2/', methods=['GET'])
 def exception_with_handler():
     # abort(httplib.NOT_FOUND)
     return "exception2"

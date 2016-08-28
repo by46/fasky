@@ -15,3 +15,11 @@ LOG_BACKUP_COUNT = 10
 LOG_MAX_BYTE = 1024 * 1024 * 10
 LOG_FORMATTER = '%(asctime)s - %(levelname)s - %(message)s'
 LOG_ENABLE_CONSOLE = True
+
+# Flask-Mail settings
+MAIL_SERVER = 'smtp.126.com'
+MAIL_PORT = 25
+MAIL_USE_TLS = False
+MAIL_USE_SSL = False
+MAIL_USERNAME = 'ycs_ctbu_2010@126.com'
+MAIL_PASSWORD = 'Newegg@123456$'

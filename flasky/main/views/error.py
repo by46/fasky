@@ -2,9 +2,9 @@ import httplib
 
 from flask import render_template
 
-from flasky import app
+from flasky.main import main
 
 
-@app.errorhandler(httplib.NOT_FOUND)
+@main.errorhandler(httplib.NOT_FOUND)
 def page_not_found(ex):
     return render_template('404.html'), httplib.NOT_FOUND

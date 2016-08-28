@@ -7,4 +7,6 @@ Flask-TWF
 Flask-SQLAlchemy
 Flask-Script
 Flask-Migrate
+Flask-Mail
+Flask-Login
 mock
