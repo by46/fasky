@@ -1,0 +1,10 @@
+gevent
+Flask
+Flask-Cors
+Flask-Moment
+Flask-Bootstrap
+Flask-TWF
+Flask-SQLAlchemy
+Flask-Script
+Flask-Migrate
+mock
