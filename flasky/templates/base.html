@@ -56,6 +56,6 @@
     </div>
 {% endblock %}
 {% block scripts %}
-    {{ moment.include_jquery() }}
-    {{ moment.include_moment() }}
+    {{ moment.include_jquery(local_js=url_for('static',filename='js/jquery-2.1.0.min.js')) }}
+    {{ moment.include_moment(local_js=url_for('static',filename='js/moment-with-locales.min.js')) }}
 {% endblock %}
