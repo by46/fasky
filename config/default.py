@@ -1,7 +1,8 @@
 HTTP_HOST = ''
 HTTP_PORT = 8080
 FLASKY_MAIL_SUBJECT_PREFIX = "(Info)"
-FLASKY_MAIL_SENDER ='ycs_ctbu_2010@126.com'
+FLASKY_MAIL_SENDER = 'ycs_ctbu_2010@126.com'
+FLASKY_ADMIN = 'ycs_ctbu_2010@126.com'
 
 SECRET_KEY = "\x02|\x86.\\\xea\xba\x89\xa3\xfc\r%s\x9e\x06\x9d\x01\x9c\x84\xa1b+uC"
 

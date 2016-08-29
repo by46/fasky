@@ -10,7 +10,7 @@ from flask_login import logout_user
 
 from flasky import db
 from flasky.auth import auth
-from flasky.mail import send_mail
+from flasky.email import send_mail
 from flasky.models import User
 from .forms import LoginForm
 from .forms import RegistrationForm
