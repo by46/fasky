@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Confirm email</title>
+</head>
+<body>
+<div>
+    <h1>
+        Dear {{ user.username }},
+    </h1>
+    <div>
+        <div>Welcome to Flasky!</div>
+        <div>
+            To confirm your account please click on the following link:
+            <a href="{{ url_for('auth.confirm', token=token, _external=True) }}">{{ url_for('auth.confirm', token=token, _external=True) }}</a>
+        </div>
+        <div>Sincerely,</div>
+        <div>The Flasky Team</div>
+        <div>Note: replies to this email address are not monitored.</div>
+    </div>
+</div>
+</body>
+</html>
+
