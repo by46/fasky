@@ -1,7 +1,6 @@
 """flasky
 
 """
-import os
 
 from flask import Flask
 from flask_bootstrap import Bootstrap
@@ -22,15 +21,10 @@ login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 
 
-def create_app():
+def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object('config.default')
-    key = 'ENV'
-    if key not in os.environ:
-        os.environ[key] = 'development'
-
-    env = os.environ.get(key)
-    app.config.from_object('config.{0}'.format(env.lower()))
+    app.config.from_object('config.{0}'.format(config_name.lower()))
     app.config['VERSION'] = __version__
 
     moment.init_app(app)

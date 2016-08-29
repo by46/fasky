@@ -5,16 +5,17 @@ from flask_script import Shell
 
 from flasky import create_app
 from flasky import db
+from flasky.models import Role
 from flasky.models import User
 
-app = create_app()
+app = create_app('development')
 manager = Manager(app)
 
 migrate = Migrate(app, db)
 
 
 def make_shell_context():
-    return dict(app=app, db=db, User=User)
+    return dict(app=app, db=db, User=User, Role=Role)
 
 
 manager.add_command('shell', Shell(make_context=make_shell_context))
